@@ -2,7 +2,6 @@ from typing import override
 from BinarySearchTreeADT import BinarySearchTreeADT
 from node import Node
 
-
 class BinarySearchTree(BinarySearchTreeADT):
     def __init__(self) -> None:
         self._root: Node = None
