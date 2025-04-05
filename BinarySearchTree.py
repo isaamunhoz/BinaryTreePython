@@ -132,9 +132,21 @@ class BinarySearchTree(BinarySearchTreeADT):
         def _count_internal(current: Node) -> int:
             if current is None:
                 return 0
-            if current.left is None and current.right is None:
-                return 0
-            return 1 + _count_internal(current.left) + _count_internal(current.right)
+            count = 0
+            if current.left is not None:
+                if current.left.left is not None or current.left.right is not None:
+                    count += 1
+                count += _count_internal(current.left)
+
+            if current.right is not None:
+                if current.right.left is not None or current.right.right is not None:
+                    count += 1
+                count += _count_internal(current.right)
+
+            return count
+
+        if self._root is None:
+            return 0
         return _count_internal(self._root)
 
     @override

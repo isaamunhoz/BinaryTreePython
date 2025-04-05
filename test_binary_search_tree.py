@@ -50,7 +50,7 @@ class TestBinarySearchTree:
         assert captured.out.strip() == "2 4 3 8 7 5"
 
     def test_count_internal(self, sample_tree):
-        assert sample_tree.count_internal() == 3
+        assert sample_tree.count_internal() == 2
 
     def test_degree(self, sample_tree):
         assert sample_tree.degree(2) == 3
