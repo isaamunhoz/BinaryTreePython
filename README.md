@@ -45,3 +45,8 @@ bst = BynarySearchTree()
 ```bash
 pytest test_binary_search_tree.py
 ```
+
+- You can run the examples using the following command:
+```bash
+python main.py
+```
