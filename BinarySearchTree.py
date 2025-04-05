@@ -47,24 +47,24 @@ class BinarySearchTree(BinarySearchTreeADT):
         self._root = insert(self._root, key, value)
 
     def __str__(self) -> str:
-        def _str_tree(current: Node, is_right: bool, tree: str, ident: str='') -> str:
+        def _str_tree(current: Node, is_right: bool, tree: str, ident: str="") -> str:
             if current.right:
                 tree = _str_tree(current.right, True, tree,
-                               ident + ('     ' if is_right else '|    '))
-            tree += ident + ('┌───' if is_right else '└───') + str(current) + '\n'
+                               ident + ("     " if is_right else "|    "))
+            tree += ident + ("┌───" if is_right else "└───") + str(current) + "\n"
             if current.left:
                 tree = _str_tree(current.left, False, tree,
-                               ident + ('|    ' if is_right else '     '))
+                               ident + ("|    " if is_right else "     "))
             return tree
 
         if self._root is None:
-            return ''
-        tree = ''
+            return ""
+        tree = ""
         if self._root.right:
-            tree = _str_tree(self._root.right, True, tree, '')
-        tree += str(self._root) + '\n'
+            tree = _str_tree(self._root.right, True, tree, "")
+        tree += str(self._root) + "\n"
         if self._root.left:
-            tree = _str_tree(self._root.left, False, tree, '')
+            tree = _str_tree(self._root.left, False, tree, "")
         return tree
 
     def _delete_by_merging(self, key: object) -> bool:
@@ -103,7 +103,7 @@ class BinarySearchTree(BinarySearchTreeADT):
     def pre_order_traversal(self) -> None:
         def _pre_order_traversal(current: Node) -> None:
             if current:
-                print(current.key, end=' ')
+                print(current.key, end=" ")
                 _pre_order_traversal(current.left)
                 _pre_order_traversal(current.right)
         _pre_order_traversal(self._root)
@@ -113,7 +113,7 @@ class BinarySearchTree(BinarySearchTreeADT):
         def _in_order_traversal(current: Node) -> None:
             if current:
                 _in_order_traversal(current.left)
-                print(current.key, end=' ')
+                print(current.key, end=" ")
                 _in_order_traversal(current.right)
         _in_order_traversal(self._root)
 
@@ -123,7 +123,7 @@ class BinarySearchTree(BinarySearchTreeADT):
             if current:
                 _post_order_traversal(current.left)
                 _post_order_traversal(current.right)
-                print(current.key, end=' ')
+                print(current.key, end=" ")
         _post_order_traversal(self._root)
 
     @override
